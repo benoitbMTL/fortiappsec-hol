@@ -15,6 +15,11 @@ It will be used throughout the lab to personalize DNS configuration and testing 
             <option value="dvwa3.labsec.ca">dvwa3.labsec.ca</option>
             <option value="dvwa4.labsec.ca">dvwa4.labsec.ca</option>
             <option value="dvwa5.labsec.ca">dvwa5.labsec.ca</option>
+            <option value="dvwa6.labsec.ca">dvwa6.labsec.ca</option>
+            <option value="dvwa7.labsec.ca">dvwa7.labsec.ca</option>
+            <option value="dvwa8.labsec.ca">dvwa8.labsec.ca</option>
+            <option value="dvwa9.labsec.ca">dvwa9.labsec.ca</option>
+            <option value="dvwa10.labsec.ca">dvwa10.labsec.ca</option>
         </select>
         <p id="appNameDisplay" style="margin: 0;">
             This will be your hostname used throughout the lab: <strong style="color: green;">@APP_NAME</strong>.
