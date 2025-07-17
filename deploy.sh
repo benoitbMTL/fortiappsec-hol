@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Check if a container named 'hol-xpa2023-cloud' already exists
-echo "Checking if a container named 'hol-xpa2023-cloud' already exists..."
-container_id=$(sudo docker ps -a -q -f name=hol-xpa2023-cloud)
+# Check if a container named 'fortiappsec-hol' already exists
+echo "Checking if a container named 'fortiappsec-hol' already exists..."
+container_id=$(sudo docker ps -a -q -f name=fortiappsec-hol)
 
 if [ -n "$container_id" ]; then
 	# Stop the container
@@ -22,8 +22,8 @@ git pull origin main
 
 # Build the Docker image
 echo "Building the Docker image..."
-sudo docker build -t hol-xpa2023-cloud .
+sudo docker build -t fortiappsec-hol .
 
 # Run the Docker container
 echo "Running the Docker container..."
-sudo docker run -d --restart unless-stopped --name hol-xpa2023-cloud-container -p 8000:8000 hol-xpa2023-cloud
+sudo docker run -d --restart unless-stopped --name fortiappsec-hol-container -p 8000:8000 fortiappsec-hol
