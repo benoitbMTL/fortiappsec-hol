@@ -78,17 +78,14 @@ function sendHeadRequestToLogin() {
         mode: "no-cors"
     })
     .then(() => {
-        displayResult("✅ HEAD request sent.");
+        alert("HEAD request sent.");
     })
     .catch(error => {
-        displayResult("❌ Request failed: " + error);
+        alert("Request failed: " + error);
     });
 }
 
-
 function sendRequestWithHeadlessUserAgent() {
-    const url = "/login.php";
-
     fetch(getAppUrl(), {
         method: "GET",
         mode: "no-cors",
@@ -97,9 +94,9 @@ function sendRequestWithHeadlessUserAgent() {
         }
     })
     .then(() => {
-        displayResult("✅ HeadlessChrome request sent.");
+        alert("Headless bot request sent.");
     })
     .catch(error => {
-        displayResult("❌ Request failed: " + error);
+        alert("Request failed: " + error);
     });
 }

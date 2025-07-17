@@ -394,8 +394,6 @@ The following modules are enabled — we will **review them in this lab**.
     
     [Send HEAD request](#){ .md-button onclick="sendHeadRequestToLogin()" }  
 
-    <div id="http-method-result" style="margin-top: 1em; font-weight: bold;"></div>
-
     ### Attack logs
 
     ![](img/fortiappsec-log-head-is-not-allowed.png)
@@ -513,18 +511,7 @@ The following modules are enabled — we will **review them in this lab**.
 
     [Send request](#){ .md-button onclick="sendRequestWithHeadlessUserAgent()" }
 
-    <div id="bot-result" style="margin-top: 1em; font-weight: bold;"></div>
-
-
-
-
-
-
-
-
-
-
-
+    ![](img/fortiappsec-crawler-log.png)
 
 ??? note "DoS Protection Policy"
     ## DoS Protection Policy
@@ -538,78 +525,23 @@ The following modules are enabled — we will **review them in this lab**.
 
     ### Configuration
 
-    `DoS Protection > DoS Protection Policy`
+    Go to:  
+    `WAF > Templates > StandardProtection-Clone > DDoS Prevention`
 
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.105.png)
+    Set **HTTP Request Limit (Session)** to a very low value (5 instead of the default 500).
+
+    Enable the **CAPTCHA challenge** as the action when the limit is reached.
+
+    Set **Block Duration** to 60 seconds.
+
+    ![](img/fortiappsec-ddos.png)
+    
+    ⚠️ Click `SAVE`
 
     ### Testing DoS HTTP Flood
 
-    For this test, HTTP request limit / sec is set very low (5 instead of default 500).
-
-    Go to any page and refresh very quickly with F5. Alternatively, hold down SHIFT button and click the Reload button several times.
-
-    Go to Attack Logs.
+    Go to any page and **press F5 repeatedly** to simulate a burst of requests and trigger the protection.
 
     ### Attack Logs
 
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.106.png)
-
-
-
-
-??? example "Custom Policy"
-    ## Custom Policy
-
-    Custom rules provide a degree of flexibility for complex conditions. You can combine any or all of these criteria:
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.060.png)
-
-    ### Configuration
-
-    Example #1 – Detecting Vulnerability Scanning
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.061.png)
-
-    Example #2 – Detecting Brute Force Login
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.062.png)
-
-    ### Testing Vulnerability Scanning
-
-    Browse to <a href="https://@APP_NAME/vulnerabilities/sqli/" target="_blank">https://@APP_NAME/vulnerabilities/sqli/</a> and submit `‘or 1=1#` 11 times.
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.063.png)
-
-    FortiAppSec Cloud blocks SQL injection for the first 10 requests and quarantine the IP at the 11<sup>th</sup> request.
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.064.png)
-
-    Check the blocked IPs and release it for the next test.
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.065.png)
-
-
-    ### Testing brute force attack
-
-    Try to login 20 times very quickly with user “p” and no password. You can also reduce the configuration to 3 occurrences for testing purpose. **Don’t forget to configure it back to 20 after your test.**
-
-    After few requests, FortiAppSec Cloud enforces a CAPTCHA to check if this is a bot or not. You can put a wrong answer to simulate a bot activity.
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.066.png)
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.067.png)
-
-    Check the blocked IPs and release it for the next test.
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.065.png)
-
-    ### Attack Logs
-
-    ![](img/Aspose.Words.fc7ec648-3633-4466-b24a-e7a2902fc6a3.068.png)
-
-
-
-
-
-
-
+    ![](img/fortiappsec-ddos-log.png)
