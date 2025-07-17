@@ -1,0 +1,129 @@
+site_name: FortiAppSec Cloud Hands-On Lab
+
+theme:
+  name: material
+  logo: img/fortinet.svg
+  favicon: img/fortinet.svg
+  features:
+    #- navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      primary: blue
+      accent: red
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: white
+      accent: white
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+# Remove Default Footer
+extra:
+  generator: false
+
+# Footer
+copyright: Fortinet Canada CSE Team - July 2025
+
+extra_javascript:
+  - javascripts/extra.js
+
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      title: On this page
+
+  # Python Markdown Extensions
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+
+plugins:
+  - search
+  - glightbox
+  - with-pdf:
+      author: Fortinet Canada CSE Team
+      copyright: Last Update July 2025
+      title: FortiAppSec Cloud Hands-On Lab
+      
+      cover: true
+      back_cover: false
+      cover_title: Fortinet XPA2023 - ZTNA Track
+      cover_subtitle: Hands-On Lab
+      #custom_template_path: TEMPLATES PATH
+      #
+      #toc_title: TOC TITLE TEXT
+      #heading_shift: false
+      toc_level: 3
+      ordered_chapter_level: 2
+      #excludes_children:
+      #    - 'release-notes/:upgrading'
+      #    - 'release-notes/:changelog'
+      #
+      #exclude_pages:
+      #    - 'bugs/'
+      #    - 'appendix/contribute/'
+      #convert_iframe:
+      #    - src: IFRAME SRC
+      #      img: POSTER IMAGE URL
+      #      text: ALTERNATE TEXT
+      #    - src: ...
+      #two_columns_level: 3
+      #
+      #render_js: true
+      #headless_chrome_path: headless-chromium
+      #
+      output_path: download/fortiappsec-hol.pdf
+      enabled_if_env: ENABLE_PDF_EXPORT
+      #
+      #debug_html: true
+      #show_anchors: true
+      #verbose: true
+
+
+
+nav:
+  - "Introduction": "index.md"
+  - "Lab1 - Exploring FortiAppSec Cloud Portal": "1-fortiappsec-portal.md"
+  - "Lab2 - Onboarding Your First Application": "2-fortiappsec-onboarding.md"
+  - "Lab3 - Standard Protections": "3-fortiappsec-standard-protection.md"
+  #- "Lab4 - Extended Protections": "4-fortiappsec-extended-protection.md"
+  - "Ressources": "ressources.md"
