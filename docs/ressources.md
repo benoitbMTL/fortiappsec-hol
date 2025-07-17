@@ -1,5 +1,5 @@
-### 📄 Download this HoL in PDF format
-- [Download the PDF](download/fortiappsec-hol.pdf){target="_blank"}
+### 📄 Training Presentation
+- [Download the Presentation](download/fortiappsec-hol.pptx){target="_blank"}
 
 ### 📚 Official Documentation
 - [FortiAppSec Cloud Admin Guide](https://docs.fortinet.com/product/fortiappsec-cloud){target="_blank"}
