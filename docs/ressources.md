@@ -1,5 +1,6 @@
 ### 📄 Training Presentation
-- [Download the Presentation](download/fortiappsec-hol.pptx){target="_blank"}
+- [FortiAppSec Presentation](download/fortiappsec-hol.pptx){target="_blank"}
+- [Advanced Bot Protection Presentation](download/advanced-bot-protection.pptx){target="_blank"}
 
 ### 📚 Official Documentation
 - [FortiAppSec Cloud Admin Guide](https://docs.fortinet.com/product/fortiappsec-cloud){target="_blank"}

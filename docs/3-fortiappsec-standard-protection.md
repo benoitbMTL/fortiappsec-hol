@@ -124,7 +124,7 @@ The following modules are enabled — we will **review them in this lab**.
         35. Cookie Security
 
 ??? note "Known Attacks"
-    ### Description
+    ## Known Attacks
     FortiAppSec Cloud uses up-to-date **signatures** to block OWASP Top 10 threats like **XSS**, **SQL Injection**, and **known exploits**. It analyzes traffic at the **packet level**, checks against its signature database, and applies **automated actions** to protect your applications.
 
     ### Configuration
@@ -270,12 +270,16 @@ The following modules are enabled — we will **review them in this lab**.
     ```
     The exception **does not apply** to this URL. The signature is still enforced for the rest of the website.
 
-    ### Signature Updates
+    ### Signature Updates in FortiAppSec Cloud
 
-    To check the latest signature updates, visit the **FortiGuard Labs** page:  
-    [https://www.fortiguard.com/services/ws](https://www.fortiguard.com/services/ws){target="_blank"}
+    The **signature database** is updated on the **15th** and **31st** of each month. You can view the latest updates on the **FortiGuard Web Application Security** page: [https://www.fortiguard.com/services/ws](https://www.fortiguard.com/services/ws){target="_blank"}
 
-    For example, on **July 15**, **6 new signatures** were added to the database.
+    New signatures are set to **Alert mode by default**, and are **not editable**. **Modifications related to known attacks** are **not applied** to these new signatures until the **following update cycle**.
+
+    **Example:**  
+    If **signature 8888888** is released on **July 15**, it will remain in **Alert mode** from July 15 to July 31. Any modifications for **known attack detection** will be applied to this signature after **August 1**, during the **next update cycle**.
+
+    **July 15**, **6 new signatures** were added to the database.  
 
     ![](img/fortiappsec-fortiguard-labs.png)
 
@@ -285,8 +289,9 @@ The following modules are enabled — we will **review them in this lab**.
 
 
 
+
 ??? note "File Security"
-    ### Description
+    ## File Security
 
     **File Protection** ensures that uploaded files are safe and comply with allowed file types and size limits.
 
@@ -327,7 +332,7 @@ The following modules are enabled — we will **review them in this lab**.
 
     ![](img/fortiappsec-log-eicar.png)
 
-    ### 🧪 Web Shell Upload (Advanced Exercise)
+    ### Web Shell Upload (Advanced Exercise)
 
     For this step, you'll receive **fewer instructions** — take your time and try to apply what you've learned.
 
@@ -363,7 +368,7 @@ The following modules are enabled — we will **review them in this lab**.
 
 
 ??? note "Request Limits"
-    ### Description
+    ## Request Limits
 
     Request Limits enforce limitations at the HTTP protocol level to make sure all client requests adhere to the HTTP RFC standard and security best practice. By using Request Limits you can prevent exploits such as malicious encoding and buffer overflows that can lead to Denial of Service (DoS) and server takeover.
 
@@ -392,7 +397,10 @@ The following modules are enabled — we will **review them in this lab**.
 
     Click the button below to send an HTTP request to `/login.php` using the HEAD method.
     
-    [Send HEAD request](#){ .md-button onclick="sendHeadRequestToLogin()" }  
+    <button type="button" class="md-button" style="background-color: #dc3545; color: white;" onclick="sendHeadRequestToLogin()">
+    Send HEAD request
+    </button>
+
 
     ### Attack logs
 
@@ -421,7 +429,7 @@ The following modules are enabled — we will **review them in this lab**.
 
 
 ??? note "IP Protection"
-    ### Description
+    ## IP Protection
 
     FortiAppSec’s IP Protection feature allows you to control access based on the client’s IP address, using reputation data, geolocation, or custom IP lists.
     
@@ -432,8 +440,6 @@ The following modules are enabled — we will **review them in this lab**.
 
     ![](img/fortiappsec-ip-protection.png)
 
-    ### Testing IP List
-
     Browse to <a href="https://ifconfig.me/" target="_blank">https://ifconfig.me/</a>.
 
     Copy your **public IP**.
@@ -443,6 +449,8 @@ The following modules are enabled — we will **review them in this lab**.
     ![](img/fortiappsec-block-ip-list.png)
 
     ⚠️ Click `SAVE`
+
+    ### Testing IP List
 
     Browse to <a href="https://@APP_NAME/login.php" target="_blank">https://@APP_NAME/login.php</a>.
 
@@ -490,7 +498,7 @@ The following modules are enabled — we will **review them in this lab**.
 
 
 ??? note "Known Bots"
-    ### Description
+    ## Known Bots
 
     Configuring Known Bots protects your websites, mobile applications, and APIs by blocking known malicious bots (e.g., DoS, Spam, Crawlers) while permitting activity from beneficial bots, such as search engines.
 
@@ -509,7 +517,11 @@ The following modules are enabled — we will **review them in this lab**.
 
     Click the button below to simulate **Selenium with Chrome in Headless mode**:
 
-    [Send request](#){ .md-button onclick="sendRequestWithHeadlessUserAgent()" }
+    <button type="button" class="md-button" style="background-color: #dc3545; color: white;" onclick="sendRequestWithHeadlessUserAgent()">
+    Send request
+    </button>
+
+
 
     ![](img/fortiappsec-crawler-log.png)
 
